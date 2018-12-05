@@ -14,7 +14,7 @@ public class Metodos {
 			total += arquivo;
 			
 			vetor_1[i][0] = total;
-			vetor_1[i][1] += (aux*aux)+(aux*(i+1));
+			vetor_1[i][1] += (aux*4)+(aux*(i+1));
 				
 		}
 		
