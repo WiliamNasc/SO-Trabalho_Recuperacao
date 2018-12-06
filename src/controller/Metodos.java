@@ -1,20 +1,23 @@
 package controller;
 
+import javax.swing.JOptionPane;
+
 public class Metodos {
 
-	int [][] vetor_1 = new int [4][2]; // vetor 1 do raid 0
-	int [] vetor_2 = new int [4]; // vetor 2 do raid 0
-	int total,  aux = 8;
+	int [][] mat_r = new int [4][2]; // matriz que representa os blocos do Raid 0.
+	int total,  aux = 8; // variaveis que auxiliam no controle dos valores de cada bloco.
 	
 	public void raid0 (int arquivo, int num_disk) {
 		
+		arquivo *= num_disk;
 		aux = arquivo;
+		
 		for (int i = 0; i < 4; i++){
 			
 			total += arquivo;
 			
-			vetor_1[i][0] = total;
-			vetor_1[i][1] += (aux*4)+(aux*(i+1));
+			mat_r[i][0] = total;
+			mat_r[i][1] += (aux*4)+(aux*(i+1));
 				
 		}
 		
@@ -24,16 +27,16 @@ public class Metodos {
 	}
 	
 	
-	public void raid1(int arquivo){
+	public void raid1(int arquivo, int num_disk){
 		
-		System.out.println("ARQUIVO X DE TAMANHO: " + arquivo + " Kb \n");
+		System.out.println("Qtde. de discos: "+num_disk+"\nTAMANHO: " + arquivo + " Kb \n");
 		
 		for (int i = 0; i < 4; i++){
 			
 			for (int j = 0; j < 2; j++ ){
 				
 				
-				System.out.print("\t" + "|"+ vetor_1[i][j] + "| " +"\t");
+				System.out.print("\t" + "|"+ mat_r[i][j] + "| " +"\t");
 			
 				
 			}
@@ -41,9 +44,14 @@ public class Metodos {
 			System.out.println(" ");
 		}
 		
-		System.out.println("BLOCO 1                     BLOCO 2 \n");
+		System.out.println("\n BLOCO 1                     BLOCO 2 \n");
 		System.out.println("\t OBS.: Os valores acima são os bits armazenados em cada posição de bloco. \t");
 		
+	}
+	
+	public int msg_Int (String texto){
+		
+		return Integer.parseInt(JOptionPane.showInputDialog(texto));
 	}
 
 }

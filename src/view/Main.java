@@ -7,11 +7,11 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		Metodos raid0 = new Metodos();
-		int arquivo = 4;
-		int num_disk = 3;
-		raid0.raid0(arquivo, num_disk);
-		raid0.raid1(arquivo);
+		Metodos rodar = new Metodos();
+		int tamanho_arq = rodar.msg_Int("Tamanho do arquivo");
+		int num_disk = rodar.msg_Int("Quantidade de discos");
+		rodar.raid0(tamanho_arq, num_disk);
+		rodar.raid1(tamanho_arq, num_disk);
 	}
 
 }
