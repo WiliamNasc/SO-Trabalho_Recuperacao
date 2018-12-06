@@ -7,14 +7,17 @@ public class Metodos {
 	int [][] mat_r = new int [4][2]; // matriz que representa os blocos do Raid 0.
 	int total,  aux = 8; // variaveis que auxiliam no controle dos valores de cada bloco.
 	
-	public void raid0 (int arquivo, int num_disk) {
+// insere os valores nas linhas e colunas da matriz
+// de acordo com os com a numero de discos e o tamanho
+	
+	public void raid0 (int tamanho_arq, int num_disk) {
 		
-		arquivo *= num_disk;
-		aux = arquivo;
+		tamanho_arq *= num_disk;
+		aux = tamanho_arq;
 		
 		for (int i = 0; i < 4; i++){
 			
-			total += arquivo;
+			total += tamanho_arq;
 			
 			mat_r[i][0] = total;
 			mat_r[i][1] += (aux*4)+(aux*(i+1));
@@ -27,9 +30,9 @@ public class Metodos {
 	}
 	
 	
-	public void raid1(int arquivo, int num_disk){
+	public void raid1(int tamanho_arq, int num_disk){
 		
-		System.out.println("Qtde. de discos: "+num_disk+"\nTAMANHO: " + arquivo + " Kb \n");
+		System.out.println("Qtde. de discos: "+num_disk+"\nTAMANHO: " + tamanho_arq + " Kb \n");
 		
 		for (int i = 0; i < 4; i++){
 			
